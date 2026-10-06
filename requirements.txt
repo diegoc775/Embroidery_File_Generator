@@ -4,3 +4,4 @@ setuptools==81.0.0
 py-real-esrgan
 huggingface-hub
 python-dotenv
+rembg>=2.0.0

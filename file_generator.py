@@ -4,6 +4,7 @@ from pathlib import Path
 from itertools import islice
 from huggingface_hub import login, whoami
 
+from image_background_remover import remove_image_backgrounds
 from real_esrgan_gen_ai_utils import initialize_model, process_batch
 
 
@@ -18,6 +19,7 @@ def file_generator(input_path: Path, output_path: Path):
     user_info = whoami()
     print(f" Successfully logged in as: {user_info['name']}")
     png_files = extract_input_images(input_path)
+    remove_image_backgrounds(png_files, output_path)
     if not png_files:
         print(f"No png files found in {input_path}")
         return
